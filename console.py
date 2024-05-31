@@ -2,6 +2,7 @@
 """ console """
 
 import cmd
+from os import system
 from datetime import datetime
 import models
 from models.amenity import Amenity
@@ -159,6 +160,15 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
         else:
             print("** class doesn't exist **")
+
+    def do_clear(self, args):
+        """Clears the console screen"""
+        system("clear")
+
+    def do_exit(self, line):
+        """Exit the console."""
+        return True
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
